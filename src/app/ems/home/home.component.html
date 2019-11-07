@@ -1,0 +1,31 @@
+<table class="table table-bordered">
+    <thead>
+      <tr>
+        <th class="text-center">รหัสผู้ใช้</th>
+        <th class="text-center">ชื่อ-นามสกุล</th>
+        <th class="text-center">เพศ</th>
+        <th class="text-center">วัน/เดือน/ปีเกิด</th>
+        <th class="text-center">อีเมล์</th>
+        <th class="text-center">ที่อยู่</th>
+        <th class="text-center">เบอร์โทรศัพท์</th>
+        <th width="300" class="text-center">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+       <tr *ngFor="let employee of employees">
+          <th class="text-center">{{employee.user_id}}</th>
+          <td>{{employee.user_fname}} {{employee.user_lname}}</td>
+          <td>{{employee.user_gender}}</td>
+          <td>{{employee.user_birthday}}</td>
+          <td>{{employee.user_email}}</td>
+          <td>{{employee.user_address}}</td>
+          <td>{{employee.user_phone}}</td>
+          <td width=300> 
+              <a class="btn btn-info" routerLink="/show/{{employee.user_id}}">ดู</a> 
+              <a class="btn btn-success" routerLink="/edit/{{employee.user_id}}">แก้ไข</a>
+              <a class="btn btn-danger" (click)="deleteUser(employee.user_id)">ลบ</a>
+          </td>
+       </tr>
+    </tbody>
+  </table>
+  
